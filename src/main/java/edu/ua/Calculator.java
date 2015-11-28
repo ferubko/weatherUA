@@ -5,5 +5,5 @@ import javax.swing.*;
 /**
  * Created by Stepan on 28.11.2015.
  */
-public class Calculator extends JPanel{
+public class Calculator extends JPanel {
 }
