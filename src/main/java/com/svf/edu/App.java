@@ -18,10 +18,7 @@ import java.util.Arrays;
  * Created by stepanferubko
  */
 @SpringBootApplication
-//@Configuration
-//@ComponentScan
-//@EnableAutoConfiguration
-public class App extends SpringBootServletInitializer {
+public class App {
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
@@ -38,11 +35,6 @@ public class App extends SpringBootServletInitializer {
     @Bean
     public WeatherClient weatherClient(){
         return new WeatherClient();
-    }
-
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(App.class);
     }
 
     public static void main(String[] args) {

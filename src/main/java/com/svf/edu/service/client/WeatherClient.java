@@ -15,9 +15,6 @@ public class WeatherClient extends AbstractClient {
     @Value("${weather.default.key}")
     private String API_KEY;
 
-//    @Value("${city.Odessa}")
-//    private String cityOdessa;
-
     public WeatherResponse getWeather(String city) throws InternalServiceInvocationException {
         return getResponse(() -> restTemplate.getForObject(WEATHER_ENDPOINT, WeatherResponse.class, city, API_KEY));
 
