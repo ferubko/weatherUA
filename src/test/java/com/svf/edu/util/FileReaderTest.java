@@ -19,7 +19,7 @@ public class FileReaderTest {
         CityResponse read = FileReader.read();
         List<City> ua = read.getCity().stream().filter(c -> c.getCountry().equals("UA")).collect(Collectors.toList());
         System.out.println(ua.size());
-        ua.forEach(c-> System.out.println(c.getName()+"(\"\",\""+c.getName()+"\");"));
+        ua.forEach(c -> System.out.println(c.getName() + "(\"\",\"" + c.getName() + "\");"));
 
     }
 }

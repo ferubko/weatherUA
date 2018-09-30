@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 /**
  * Created by stepanferubko
  */
-//@Component
+@Component
 public class WeatherClient extends AbstractClient {
     public static final String WEATHER_ENDPOINT = "http://api.openweathermap.org/data/2.5/weather?q={q},ua&appid={appid}";
 
