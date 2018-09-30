@@ -5,6 +5,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -19,7 +21,7 @@ import java.util.Arrays;
 //@Configuration
 //@ComponentScan
 //@EnableAutoConfiguration
-public class App {
+public class App extends SpringBootServletInitializer {
     @Bean
     public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
         return args -> {
@@ -38,6 +40,10 @@ public class App {
         return new WeatherClient();
     }
 
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(App.class);
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
