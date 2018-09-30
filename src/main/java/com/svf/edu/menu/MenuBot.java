@@ -101,8 +101,8 @@ public class MenuBot extends TelegramLongPollingBot {
                 if (messageFromUser.equals("/start") || messageFromUser.equals("/menu")) {
                     createNavigationButtons(chatId);
                     botClientService.setPreviousCommand(chatId, messageFromUser);
-                } else if (previousCommand.equals("Введіть назву міста:") && !messageFromUser.equals("Обрати зі списку")) {
-                    if (messageFromUser.equals("Введіть назву міста:")) {
+                } else if (previousCommand.equals("Введіть назву міста") && !messageFromUser.equals("Обрати зі списку")) {
+                    if (messageFromUser.equals("Введіть назву міста")) {
                         SendMessage message = InlineKeyboardBuilder.create(chatId).setText("Ви не ввели потрібну інформацію спробуйте ще раз").build();
                         executeSendingMessage(message);
                         return;
@@ -116,9 +116,8 @@ public class MenuBot extends TelegramLongPollingBot {
                         executeSendingMessage(message);
                         return;
                     }
-                    System.out.println("ви обрали місто " + messageFromUser);
-                } else if (messageFromUser.equals("Введіть назву міста:")) {
-                    System.out.println("ви обрали місто " + messageFromUser);
+                    LOG.log(Level.INFO, "Ви обрали місто " + messageFromUser);
+                } else if (messageFromUser.equals("Введіть назву міста")) {
                     botClientService.setPreviousCommand(chatId, messageFromUser);
                 } else if (messageFromUser.equals("Обрати зі списку")) {
                     InlineKeyboardBuilder builder = menuManager.createMenuForPage(0, true);
