@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 /**
  * Created by stepanferubko
  */
+@Ignore
 public class FileReaderTest {
     @Test
     @Ignore
