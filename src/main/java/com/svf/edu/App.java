@@ -5,6 +5,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+//import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.TelegramBotsApi;
 import org.telegram.telegrambots.exceptions.TelegramApiException;
@@ -13,7 +16,7 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
  * Created by stepanferubko
  */
 @SpringBootApplication
-public class App implements CommandLineRunner {
+public class App extends SpringBootServletInitializer implements CommandLineRunner {
     @Autowired
     private MenuBot menuBot;
 
@@ -29,6 +32,11 @@ public class App implements CommandLineRunner {
         } catch (TelegramApiException e) {
             e.printStackTrace();
         }
+    }
+
+    @Override
+    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+        return application.sources(App.class);
     }
 
     public static void main(String[] args) {
