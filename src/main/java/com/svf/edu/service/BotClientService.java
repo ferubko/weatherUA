@@ -5,6 +5,8 @@ import com.svf.edu.vo.BotClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by stepanferubko
  */
@@ -22,6 +24,23 @@ public class BotClientService {
         subscriber.setChatId(chatId);
         subscriber.setClientName(name);
         botClientRepository.save(subscriber);
+    }
+
+    public void updateBotClient(BotClient botClient) {
+        botClientRepository.save(botClient);
+    }
+
+    public BotClient findBotClient(long id) {
+        BotClient one = botClientRepository.findOne(id);
+        if (one != null) {
+            return one;
+        } else {
+            return new BotClient();
+        }
+    }
+
+    public List<BotClient> getAllChatUsers() {
+        return botClientRepository.findAll();
     }
 
     public void setPreviousCommand(long chatId, String command) {

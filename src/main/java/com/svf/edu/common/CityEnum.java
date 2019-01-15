@@ -18,7 +18,7 @@ public enum CityEnum {
     Kirovohrad("Кропивницький", "Kirovohrad"),
     Luhansk("Луганськ", "Luhansk"),
     Lutsk("Луцьк", "Lutsk"),
-    Lviv("ЛЬвів", "Lviv"),
+    Lviv("Львів", "Lviv"),
     Mykolayiv("Миколаїв", "Mykolayiv"),
     Odessa("Одеса", "Odessa"),
     Poltava("Полтава", "Poltava"),

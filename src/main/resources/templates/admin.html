@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Home</title>
+
+    <div th:replace="fragments/header :: header-css"/>
+</head>
+<body>
+<div th:replace="fragments/logedheader :: logedheader"/>
+<div class="container">
+    <div class="starter-template">
+        <h1>Admin page (Spring Security protected)</h1>
+        <h1 th:inline="text">Hello [[${#httpServletRequest.remoteUser}]]!</h1>
+
+        <!--<form th:action="@{/logout}" method="post">-->
+        <!--<input type="submit" value="Sign Out"/>-->
+        <!--</form>-->
+
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Chat id</th>
+                    <!--<th>Action</th>-->
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="botClient : *{allChatUsers}" th:object="${botClient}">
+                    <td><p><span th:text="${botClient.id}"></span></p></td>
+                    <td><p><span th:text="${botClient.clientName}"></span></p></td>
+                    <td><p><span th:text="${botClient.chatId}"></span></p></td>
+                    <!--<td><p><span><a th:href="@{'/edituser/'+ ${botClient.id}}">Edit</a></span></p></td>-->
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+</div>
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>

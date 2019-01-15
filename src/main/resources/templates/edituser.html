@@ -1,0 +1,103 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <!--<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>-->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <title>Edit home</title>
+    <div th:replace="fragments/header :: header-css"/>
+
+</head>
+<body>
+
+<div th:replace="fragments/header :: header"/>
+
+<div class="container">
+    <td><p><span th:text="${botClient.clientName}"></span></p></td>
+    <td><p><span th:text="${botClient.chatId}"></span></p></td>
+
+    <form th:action="@{/edituser}" modelAttribute="userForm" th:object="${botClient}" method="post">
+        <!--<form th:action="@{/editsave}"  method="post">-->
+        <fieldset>
+            <h1>Edit </h1>
+            <!---->
+            <div class="form-group">
+                <input type="text" th:field="*{clientName}" class="form-control input-lg"/>
+                <!--<input type="text" name="clientName" id="clientName" class="form-control input-lg"/>-->
+            </div>
+            <div class="form-group">
+                <input type="text" th:field="*{chatId}" class="form-control input-lg"/>
+                <!--<input type="text" name="chatId" id="chatId" class="form-control input-lg"/>-->
+            </div>
+
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <input type="hidden" th:field="*{id}"/>
+                    <input type="hidden" th:field="*{previousCommand}"/>
+                    <input type="submit" class="btn btn-lg btn-primary btn-block" value="Save"/>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>
+
+<!-- /.container -->
+
+<div th:replace="fragments/footer :: footer"/>
+
+</body>
+</html>
+
+
+<!--<!DOCTYPE HTML>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--&lt;!&ndash;<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>&ndash;&gt;-->
+<!--&lt;!&ndash;<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">&ndash;&gt;-->
+
+<!--<title>Home</title>-->
+<!--<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />-->
+
+<!--<div th:replace="fragments/header :: header-css"/>-->
+
+<!--</head>-->
+<!--<body>-->
+
+<!--&lt;!&ndash;<div th:replace="fragments/header :: header"/>&ndash;&gt;-->
+<!--&lt;!&ndash;<td><p><span th:text="${botClient.clientName}"></span></p></td>&ndash;&gt;-->
+<!--&lt;!&ndash;<td><p><span th:text="${botClient.chatId}"></span></p></td>&ndash;&gt;-->
+
+<!--<div class="container">-->
+<!--&lt;!&ndash;<form th:action="@{/editsave}" th:object="${botClient}" method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;<form th:action="@{/editsave}"  method="post">&ndash;&gt;-->
+<!--&lt;!&ndash;<fieldset>&ndash;&gt;-->
+<!--&lt;!&ndash;<h1>Edit </h1>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text" th:field="*{clientName}" class="form-control input-lg"/>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<input type="text" name="clientName" id="clientName" class="form-control input-lg"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="text" th:field="*{chatId}" class="form-control input-lg"/>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;<input type="text" name="chatId" id="chatId" class="form-control input-lg"/>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+
+<!--&lt;!&ndash;<div class="row">&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col-xs-6 col-sm-6 col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;<input type="submit" class="btn btn-lg btn-primary btn-block" value="Save"/>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;<div class="col-xs-6 col-sm-6 col-md-6">&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</div>&ndash;&gt;-->
+<!--&lt;!&ndash;</fieldset>&ndash;&gt;-->
+<!--&lt;!&ndash;</form>&ndash;&gt;-->
+
+<!--</div>-->
+
+
+<!--<div th:replace="fragments/footer :: footer"/>-->
+
+<!--</body>-->
+<!--</html>-->
