@@ -23,11 +23,11 @@ public class App extends SpringBootServletInitializer implements CommandLineRunn
 //public class App {
     @Autowired
     private MenuBot menuBot;
-//
+
     public App(MenuBot menuBot) {
         this.menuBot = menuBot;
     }
-//
+
     @Override
     public void run(String... args) throws Exception {
         TelegramBotsApi botsApi = new TelegramBotsApi();
@@ -37,12 +37,12 @@ public class App extends SpringBootServletInitializer implements CommandLineRunn
             e.printStackTrace();
         }
     }
-//
+
     @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(App.class);
     }
-//
+
     public static void main(String[] args) {
         ApiContextInitializer.init();
         SpringApplication.run(App.class, args);
