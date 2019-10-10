@@ -16,7 +16,6 @@ import org.springframework.web.servlet.config.annotation.EnableWebMvc;
  * Created by stepanferubko
  */
 @Configuration
-@EnableWebMvc
 @ComponentScan(basePackages ="com.svf.edu")
 public class SpringSecurityConfig extends WebSecurityConfigurerAdapter {
 //    @Autowired
