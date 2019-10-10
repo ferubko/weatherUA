@@ -18,7 +18,8 @@ import org.telegram.telegrambots.exceptions.TelegramApiException;
  * Created by stepanferubko
  */
 @SpringBootApplication
-public class App extends SpringBootServletInitializer implements CommandLineRunner {
+//public class App extends SpringBootServletInitializer implements CommandLineRunner {
+public class App  implements CommandLineRunner {
 //public class App extends SpringBootServletInitializer  {
 //public class App {
     @Autowired
@@ -38,10 +39,10 @@ public class App extends SpringBootServletInitializer implements CommandLineRunn
         }
     }
 
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(App.class);
-    }
+//    @Override
+//    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
+//        return application.sources(App.class);
+//    }
 
     public static void main(String[] args) {
         ApiContextInitializer.init();
